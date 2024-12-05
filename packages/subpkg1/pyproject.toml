@@ -1,0 +1,32 @@
+[build-system]
+requires = [ "setuptools" ]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "subpkg1"
+version = "0.0.1"
+description = "subpkg1"
+dependencies = [
+    "requests",
+    "torch",
+]
+requires-python = ">=3.12"
+
+[project.scripts]
+subpkg1 = "subpkg1:main"
+
+[project.optional-dependencies]
+extra = [
+    "simplejson>=3.19.2",
+]
+
+[tool.pdm.dev-dependencies]
+test = [
+    "pytest>=8.2.1",
+]
+
+#[tool.setuptools.packages.find]
+#where = ["."]  # list of folders that contain the packages (["."] by default)
+#include = ["subpkg1", "subpkg2"]  # package names should match these glob patterns (["*"] by default)
+#exclude = []  # exclude packages matching these glob patterns (empty by default)
+#namespaces = false  # to disable scanning PEP 420 namespaces (true by default)
